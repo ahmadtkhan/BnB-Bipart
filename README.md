@@ -4,3 +4,15 @@ Input netlists or circuits are represented as blocks connected and nets where ea
 Cost = # crossing nets + # community mismatches <br>
 The program gurantees global optimal meaning the partition will always have the least cost possible.   
 Runtime is reduced by initial placement heuristics, greedy initialization assignment to create an initial upper bound, and a stronger lower bound function by predicting future cost to prune the tree aggressively. 
+
+
+## Usage
+Run the cpp file to create an executable using g++
+```bash
+g++ bipartition.cpp -o bipartition
+```
+The executable takes the following arguments
+```bash
+./bipartition -file_name <path> -init_place <base|fanout>
+```
+Where init_place creates build order based on ascending block number (base) or descending fanout (number of nets a block is connected to) order. Use the test_circuit* files as input files or files with similar format. 
